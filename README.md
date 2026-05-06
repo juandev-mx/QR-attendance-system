@@ -1,286 +1,296 @@
-# QR Attendance System: Sistema de Control de Asistencias con QR
+# QR Attendance System: QR-Based Attendance Control System
 
-## 🚀 Descripción del Proyecto
+![PHP](https://shields.io) &nbsp;
+![MySQL](https://shields.io) &nbsp;
+![JavaScript](https://shields.io) &nbsp;
+![Bootstrap](https://shields.io) &nbsp;
+![JWT](https://shields.io)
 
-El sistema permite gestionar el control de asistencias de empleados mediante el escaneo de códigos QR.
+## 🚀 Project Description
 
-El sistema registra automáticamente la entrada y salida de los empleados y genera métricas para el área de recursos humanos.
+The system manages employee attendance control through QR code scanning.
 
-Incluye funcionalidades como:
+The system automatically records employee entry and exit times and generates metrics for the Human Resources department.
 
--Escaneo de códigos QR para registro de asistencia
--Panel de administración para recursos humanos
--Detección automática de retardos
--Notificaciones en tiempo real
--Dashboard analítico con métricas de asistencia
--Sistema automático de alertas de ausencia
--Arquitectura multiempresa
+It includes features such as:
 
----
-
-## 🧠 Objetivo
-
-Construir un sistema backend funcional que permita:
-
--Registro automatizado de asistencias
--Gestión centralizada de empleados
--Generación de métricas y reportes
--Seguridad mediante autenticación
--Escalabilidad para múltiples empresas
+- QR code scanning for attendance registration
+- Admin panel for Human Resources
+- Automatic lateness detection
+- Real-time notifications
+- Analytical dashboard with attendance metrics
+- Automatic absence alert system
+- Multi-company architecture
 
 ---
 
-## 🛠️ Stack Tecnológico
+## 🧠 Objective
 
-| Área                 | Tecnología               |
+Build a functional backend system that allows:
+
+- Automated attendance registration
+- Centralized employee management
+- Metrics and reports generation
+- Security through authentication
+- Scalability for multiple companies
+
+---
+
+## 🛠️ Tech Stack
+
+
+| Area | Technology |
 |----------------------|--------------------------|
-| Backend              | PHP                      |
-| Base de datos        | MySQL                    |
-| Frontend             | HTML5 / CSS / JavaScript |
-| Framework UI         | Bootstrap                |
-| Gráficas             | Chart.js                 |
-| Escaneo QR           | HTML5 QR Scanner         |
-| Envío de correos     | PHPMailer
-| Autenticación        | JWT                      |
-| Control de versiones | Git / GitHub             |
+| Backend | PHP |
+| Database | MySQL |
+| Frontend | HTML5 / CSS / JavaScript |
+| UI Framework | Bootstrap |
+| Charts | Chart.js |
+| QR Scanning | HTML5 QR Scanner |
+| Email Sending | PHPMailer |
+| Authentication | JWT |
+| Version Control | Git / GitHub |
 
 ---
 
-## ⚙️ Funcionalidades Principales
+## ⚙️ Core Functionalities
 
-### 👥 Gestión de Empleados
+### 👥 Employee Management
 
--Registro de empleados
--Generación de código QR único por empleado
--Administración de información de empleados
--Asignación de horarios de entrada
-
----
-
-### 📷 Registro de Asistencia mediante QR
-
-- Escaneo de código QR desde cámara
-- Registro automático de hora de entrada
-- Registro de hora de salida
-- Prevención de duplicados en el mismo día
+- Employee registration
+- Unique QR code generation per employee
+- Employee information management
+- Entry schedule assignment
 
 ---
 
-### 🧠 Detección Automática de Retardos
+### 📷 Attendance Registration via QR
 
-El sistema compara la hora de llegada con el horario asignado al empleado.
+- QR code scanning via camera
+- Automatic clock-in time recording
+- Clock-out time recording
+- Duplicate prevention for the same day
 
-Ejemplo:
+---
+
+### 🧠 Automatic Lateness Detection
+
+The system compares the arrival time with the employee's assigned schedule.
+
+Example:
 
 ```text
-Horario de entrada: 08:00
-Hora de registro: 08:10
-Resultado: Retardo
+Entry Schedule: 08:00
+Registration Time: 08:10
+Result: Late (Retardo)
 ```
 
-Esto permite generar estadísticas de puntualidad.
+This allows for the generation of punctuality statistics.
 
 ---
 
-### 🔔 Notificaciones en Tiempo Real
+### 🔔 Real-Time Notifications
 
-Cuando un empleado registra su asistencia:
+When an employee registers their attendance:
 
-- Se genera una notificación
-- Aparece automáticamente en el dashboard
-- Permite monitorear actividad del sistema en vivo
-
----
-
-### 📊 Dashboard Analítico de Recursos Humanos
-
-El panel administrativo incluye métricas como:
-
-- Total de empleados
-- Asistencias registradas del día
-- Número de retardos
-- Faltas del día
-- Historial de asistencias
-
-También incluye gráficas generadas con **Chart.js** para visualizar:
-
-- Asistencias por día
-- Tendencias de puntualidad
-- Actividad reciente
+- A notification is generated
+- It automatically appears on the dashboard
+- Allows live monitoring of system activity
 
 ---
 
-### 📧 Sistema Automático de Alertas de Ausencia
+### 📊 HR Analytical Dashboard
 
-El sistema incluye un módulo que detecta automáticamente empleados que no registraron asistencia en el día.
+The administrative panel includes metrics such as:
 
-Al finalizar la jornada laboral:
+- Total employees
+- Attendance records for the day
+- Number of late arrivals
+- Absences for the day
+- Attendance history
 
-El sistema consulta la base de datos
-Identifica empleados sin registro de asistencia
-Genera un reporte automático
-Envía un correo al departamento de Recursos Humanos
+It also includes charts generated with **Chart.js** to visualize:
 
-Este proceso utiliza PHPMailer para enviar el reporte mediante SMTP.
-
-Ejemplo de correo generado:
-
-Reporte de Faltas - 2026-03-29
-
-Los siguientes empleados no registraron asistencia hoy:
-
-- Juan Pérez
-- María López
-- Carlos Sánchez
-
-Esto permite que Recursos Humanos detecte ausencias sin revisar manualmente el sistema.
+- Attendance per day
+- Punctuality trends
+- Recent activity
 
 ---
 
+### 📧 Automatic Absence Alert System
 
-## 🔌 Módulos Principales del Sistema
+The system includes a module that automatically detects employees who did not register their attendance for the day.
 
-### 🔐 Autenticación
+At the end of the workday:
 
-- Login de administradores
-- Protección de rutas
-- Manejo de sesiones o JWT
+1. The system queries the database
+2. Identifies employees without an attendance record
+3. Generates an automatic report
+4. Sends an email to the Human Resources department
+
+This process uses PHPMailer to send the report via SMTP.
+
+Example of generated email:
+
+> **Absence Report - 2026-03-29**
+>
+> The following employees did not register attendance today:
+>
+> - Juan Pérez
+> - María López
+> - Carlos Sánchez
+
+This allows Human Resources to detect absences without manually checking the system.
 
 ---
 
-### 👨‍💼 Gestión de Empleados
+## 🔌 Main System Modules
 
-- Crear empleados
-- Generar código QR único
-- Editar información del empleado
-- Consultar registros de asistencia
+### 🔐 Authentication
+
+- Administrator login
+- Route protection
+- Session handling or JWT
 
 ---
 
-### 📅 Registro de Asistencias
+### 👨‍💼 Employee Management
 
-- Escaneo QR
-- Registro automático en base de datos
-- Validación de duplicados
-- Registro de retardos
+- Create employees
+- Generate unique QR code
+- Edit employee information
+- Consult attendance records
+
+---
+
+### 📅 Attendance Logs
+
+- QR Scanning
+- Automatic database recording
+- Duplicate validation
+- Lateness logging
 
 ---
 
 ### 📊 Dashboard
 
-- Panel administrativo
-- Estadísticas en tiempo real
-- Tabla de asistencias
-- Gráficas de análisis
+- Administrative panel
+- Real-time statistics
+- Attendance table
+- Analytical charts
 
 ---
 
-## 🗄️ Base de Datos
+## 🗄️ Database
 
-Principales tablas del sistema:
+Main system tables:
 
-### empleados
+### employees (empleados)
 
-| Campo            | Tipo    |
+
+| Field | Type |
 |------------------|---------|
-| id               | INT     |
-| nombre           | VARCHAR |
-| apellido_paterno | VARCHAR |
-| codigo_qr        | VARCHAR |
-| hora_entrada     | TIME    |
+| id | INT |
+| first_name | VARCHAR |
+| last_name | VARCHAR |
+| qr_code | VARCHAR |
+| entry_time | TIME |
 
 ---
 
-### asistencias
+### attendance (asistencias)
 
-| Campo        | Tipo    |
+
+| Field | Type |
 |--------------|---------|
-| id           | INT     |
-| empleado_id  | INT     |
-| fecha        | DATE    |
-| hora_entrada | TIME    |
-| hora_salida  | TIME    |
-| retardo      | BOOLEAN |
+| id | INT |
+| employee_id | INT |
+| date | DATE |
+| clock_in | TIME |
+| clock_out | TIME |
+| is_late | BOOLEAN |
 
 ---
 
-### notificaciones
+### notifications (notificaciones)
 
-| Campo   | Tipo     |
-|--------|----------|
-| id     | INT      |
-| mensaje| TEXT     |
-| fecha  | DATETIME |
-| leido  | BOOLEAN  |
+
+| Field | Type |
+|---------|----------|
+| id | INT |
+| message | TEXT |
+| date | DATETIME |
+| is_read | BOOLEAN |
 
 ---
 
-### empresas
+### companies (empresas)
 
-| Campo          | Tipo      |
+
+| Field | Type |
 |---------------|-----------|
-| id            | INT       |
-| nombre        | VARCHAR   |
-| email         | VARCHAR   |
-| fecha_registro| TIMESTAMP |
+| id | INT |
+| name | VARCHAR |
+| email | VARCHAR |
+| registration_date | TIMESTAMP |
 
 ---
 
-## 🔄 Flujo de Uso
+## 🔄 Workflow
 
-1. El administrador registra empleados en el sistema  
-2. Se genera un código QR único para cada empleado  
-3. El empleado escanea su QR al llegar  
-4. El sistema registra la asistencia automáticamente  
-5. Se verifica si existe retardo  
-6. Se genera una notificación  
-7. El dashboard actualiza métricas y gráficas  
+1. The administrator registers employees in the system
+2. A unique QR code is generated for each employee
+3. The employee scans their QR code upon arrival
+4. The system automatically records the attendance
+5. Lateness is verified
+6. A notification is generated
+7. The dashboard updates metrics and charts
 
 ---
 
-## 🚀 Instalación y Ejecución
+## 🚀 Installation and Execution
 
-### 1. Clonar repositorio
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/tu-repositorio
+git clone https://github.com
 ```
 
 ---
 
-### 2. Importar base de datos
+### 2. Import database
 
-Importar el archivo:
+Import the file:
 
 ```bash
-consultas_asistencias.sql
+attendance_queries.sql
 ```
 
-en MySQL.
+into MySQL.
 
 ---
 
-### 3. Configurar conexión a base de datos
+### 3. Configure database connection
 
-Editar el archivo:
+Edit the file:
 
 ```bash
 config/database.php
 ```
 
-con las credenciales de tu servidor MySQL.
+with your MySQL server credentials.
 
 ---
 
-### 4. Ejecutar servidor local
+### 4. Run local server
 
-Puedes utilizar:
+You can use:
 
 - XAMPP
 - Laragon
 - Apache
 
-Acceder al sistema desde:
+Access the system from:
 
 ```bash
 http://localhost/qr-attendance-system
@@ -290,25 +300,26 @@ http://localhost/qr-attendance-system
 
 ## 🧪 Testing
 
-El sistema puede probarse mediante:
+The system can be tested through:
 
-- Navegador web
-- Escaneo de QR con cámara
-- Herramientas de testing HTTP como Postman
+- Web browser
+- QR scanning with camera
+- HTTP testing tools like Postman
 
 ---
 
-## 📈 Habilidades Demostradas
+## 📈 Demonstrated Skills
 
-Este proyecto demuestra habilidades en:
+This project demonstrates skills in:
 
-- Desarrollo backend con PHP
-- Diseño de bases de datos relacionales
-- Arquitectura cliente-servidor
-- Implementación de dashboards analíticos
-- Integración de escaneo QR
-- Manejo de eventos en tiempo real
-- Seguridad y autenticación
+- Backend development with PHP
+- Relational database design
+- Client-server architecture
+- Implementation of analytical dashboards
+- QR scanning integration
+- Real-time event handling
+- Security and authentication
+
 
 ---
 
